@@ -1,0 +1,67 @@
+{
+  "project": "ROCmBench Agent",
+  "hardware": "AMD Instinct MI300X",
+  "backend": "ROCm + vLLM",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "workload": "Long-context policy analysis prompts",
+  "captured_at": "2026-05-09T00:00:00+05:30",
+  "notes": "Sample tradeoff scenario for demoing memory and latency choices. Replace with measured AMD Developer Cloud runs for final claims.",
+  "runs": [
+    {
+      "config_name": "short-context-safe",
+      "concurrency": 2,
+      "max_model_len": 4096,
+      "max_tokens": 512,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 3.2,
+      "p95_latency_s": 4.1,
+      "tokens_per_second": 420.0,
+      "requests_per_minute": 34.0,
+      "gpu_memory_gb": 52.0,
+      "error_rate": 0.0
+    },
+    {
+      "config_name": "long-context-balanced",
+      "concurrency": 4,
+      "max_model_len": 16384,
+      "max_tokens": 1024,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 6.8,
+      "p95_latency_s": 8.7,
+      "tokens_per_second": 610.0,
+      "requests_per_minute": 31.0,
+      "gpu_memory_gb": 108.0,
+      "error_rate": 0.0
+    },
+    {
+      "config_name": "long-context-push",
+      "concurrency": 8,
+      "max_model_len": 32768,
+      "max_tokens": 1024,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 14.4,
+      "p95_latency_s": 24.9,
+      "tokens_per_second": 760.0,
+      "requests_per_minute": 26.0,
+      "gpu_memory_gb": 168.0,
+      "error_rate": 0.02
+    },
+    {
+      "config_name": "memory-conservative",
+      "concurrency": 3,
+      "max_model_len": 8192,
+      "max_tokens": 768,
+      "temperature": 0.2,
+      "quantization": "awq",
+      "avg_latency_s": 5.4,
+      "p95_latency_s": 6.2,
+      "tokens_per_second": 545.0,
+      "requests_per_minute": 33.0,
+      "gpu_memory_gb": 72.0,
+      "error_rate": 0.0
+    }
+  ]
+}

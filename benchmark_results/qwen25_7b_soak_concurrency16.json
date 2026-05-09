@@ -1,0 +1,25 @@
+{
+  "project": "ROCmBench Agent",
+  "hardware": "AMD Instinct MI300X",
+  "backend": "ROCm + vLLM",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "workload": "Steady soak stability at recommended concurrency",
+  "captured_at": "2026-05-09T09:34:23.302902+00:00",
+  "notes": "Measured through the OpenAI-compatible vLLM API. Fill gpu_memory_gb from rocm-smi for stronger final reporting.",
+  "runs": [
+    {
+      "config_name": "concurrency-16",
+      "concurrency": 16,
+      "max_model_len": 8192,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 1.506,
+      "p95_latency_s": 1.557,
+      "tokens_per_second": 2689.75,
+      "requests_per_minute": 633.67,
+      "gpu_memory_gb": 172.8,
+      "error_rate": 0.0
+    }
+  ]
+}

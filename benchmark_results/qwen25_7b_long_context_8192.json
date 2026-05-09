@@ -1,0 +1,53 @@
+{
+  "project": "ROCmBench Agent",
+  "hardware": "AMD Instinct MI300X",
+  "backend": "ROCm + vLLM",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "workload": "Long-context 8192 serving boundary",
+  "captured_at": "2026-05-09T09:34:08.046799+00:00",
+  "notes": "Measured through the OpenAI-compatible vLLM API. Fill gpu_memory_gb from rocm-smi for stronger final reporting.",
+  "runs": [
+    {
+      "config_name": "concurrency-4",
+      "concurrency": 4,
+      "max_model_len": 8192,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 1.574,
+      "p95_latency_s": 1.832,
+      "tokens_per_second": 640.86,
+      "requests_per_minute": 151.85,
+      "gpu_memory_gb": 172.8,
+      "error_rate": 0.0
+    },
+    {
+      "config_name": "concurrency-8",
+      "concurrency": 8,
+      "max_model_len": 8192,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 1.437,
+      "p95_latency_s": 1.458,
+      "tokens_per_second": 1404.29,
+      "requests_per_minute": 331.36,
+      "gpu_memory_gb": 172.8,
+      "error_rate": 0.0
+    },
+    {
+      "config_name": "concurrency-16",
+      "concurrency": 16,
+      "max_model_len": 8192,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 1.498,
+      "p95_latency_s": 1.523,
+      "tokens_per_second": 2684.62,
+      "requests_per_minute": 634.08,
+      "gpu_memory_gb": 172.8,
+      "error_rate": 0.0
+    }
+  ]
+}

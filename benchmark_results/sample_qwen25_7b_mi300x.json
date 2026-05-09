@@ -1,0 +1,67 @@
+{
+  "project": "ROCmBench Agent",
+  "hardware": "AMD Instinct MI300X",
+  "backend": "ROCm + vLLM",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "workload": "Customer-support chat prompts",
+  "captured_at": "2026-05-09T00:00:00+05:30",
+  "notes": "Sample-mode values for local demo. Replace with AMD Developer Cloud measurements before final submission.",
+  "runs": [
+    {
+      "config_name": "baseline-safe",
+      "concurrency": 1,
+      "max_model_len": 4096,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 2.84,
+      "p95_latency_s": 3.21,
+      "tokens_per_second": 88.4,
+      "requests_per_minute": 21.1,
+      "gpu_memory_gb": 21.8,
+      "error_rate": 0.0
+    },
+    {
+      "config_name": "balanced-batch",
+      "concurrency": 8,
+      "max_model_len": 4096,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 4.92,
+      "p95_latency_s": 5.74,
+      "tokens_per_second": 392.7,
+      "requests_per_minute": 97.5,
+      "gpu_memory_gb": 35.4,
+      "error_rate": 0.0
+    },
+    {
+      "config_name": "throughput-push",
+      "concurrency": 24,
+      "max_model_len": 4096,
+      "max_tokens": 256,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 9.65,
+      "p95_latency_s": 12.38,
+      "tokens_per_second": 721.9,
+      "requests_per_minute": 149.2,
+      "gpu_memory_gb": 54.7,
+      "error_rate": 0.01
+    },
+    {
+      "config_name": "long-context",
+      "concurrency": 4,
+      "max_model_len": 16384,
+      "max_tokens": 512,
+      "temperature": 0.2,
+      "quantization": "none",
+      "avg_latency_s": 8.72,
+      "p95_latency_s": 10.91,
+      "tokens_per_second": 301.5,
+      "requests_per_minute": 43.1,
+      "gpu_memory_gb": 48.6,
+      "error_rate": 0.0
+    }
+  ]
+}
